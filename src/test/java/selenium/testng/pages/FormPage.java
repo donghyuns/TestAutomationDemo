@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 public class FormPage {
 
-    public static void submitForm(WebDriver driver)
+    public void submitForm(WebDriver driver)
     {
         driver.findElement(By.id("first-name")).sendKeys("John");
 
