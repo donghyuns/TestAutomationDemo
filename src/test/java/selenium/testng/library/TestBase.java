@@ -1,13 +1,20 @@
-package selenium.testng.tests;
+package selenium.testng.library;
 
-import org.testng.annotations.*;
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 
-public class TestBase {
+public class TestBase extends SeleniumBase {
+
+    /*
+        To-Do : Any config for Remote Selenium Server in @BeforeTest
+     */
     @BeforeTest
     public void initFramework() throws Exception {
         //
     }
-
     @BeforeTest
     public void initTests() throws Exception{
         //
@@ -16,7 +23,7 @@ public class TestBase {
     @BeforeMethod
     public void setUpTests() {
         try {
-            //
+            super.openBrowser();
         } catch (Exception e) {
             //
         }
@@ -25,10 +32,7 @@ public class TestBase {
     @AfterMethod
     public void tearDownTests() throws Exception{
         try {
-            try {
-              //
-            } catch (Exception f){ };
-            //
+            //super.closeBrowser();
         } catch (Exception e) {
             //
         }
@@ -38,14 +42,14 @@ public class TestBase {
     public void cleanUp() {
         try {
 
-            try {
-                //
-                //
-            } catch (Exception f){ }
-            //
+
         } catch (Exception e) {
-            //
+
         }
+    }
+
+    public WebDriver getDriver() {
+        return driver; // static handle to Selenium object
     }
 
 }
