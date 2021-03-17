@@ -32,7 +32,7 @@ public class TestBase extends SeleniumBase {
     @AfterMethod
     public void tearDownTests() throws Exception{
         try {
-            //super.closeBrowser();
+            super.closeBrowser();
         } catch (Exception e) {
             //
         }

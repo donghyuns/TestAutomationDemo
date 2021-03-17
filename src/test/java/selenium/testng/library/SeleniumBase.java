@@ -15,7 +15,7 @@ public class SeleniumBase {
     //private static String serverport = "4444";
 
     public void openBrowser() {
-
+        System.setProperty("webdriver.chrome.driver", "/Users/donghyun/chromedriver");
         switch (browser) {
             default:
                 driver = new ChromeDriver();
@@ -27,7 +27,7 @@ public class SeleniumBase {
                 driver = new FirefoxDriver();
                 //return new FirefoxDriver();
         }
-        //driver.get("http://");
+        driver.get("http://");
     }
 
     public void closeBrowser() {
