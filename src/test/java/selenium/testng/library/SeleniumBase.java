@@ -40,14 +40,6 @@ public class SeleniumBase {
 
     public void startSeleniumServer() throws Exception {
 
-    //Get all the selenium server properties
-        //String browser = "chrome";
-
-    //Selenium Server
-        //SeleniumServer.setEnsureCleanSession(true);
-        //seleniumServer = new SeleniumServer(false, configuration);
-        //seleniumServer.start();
-
     }
 
     public void stopSeleniumServer() {

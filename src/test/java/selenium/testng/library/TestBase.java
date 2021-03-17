@@ -13,13 +13,14 @@ public class TestBase extends SeleniumBase {
      */
     @BeforeTest
     public void initFramework() throws Exception {
-        //
+        // Initialize configuration
     }
     @BeforeTest
     public void initTests() throws Exception{
-        //
+        // Start Selenium Server
     }
 
+    // Create global WebDriver
     @BeforeMethod
     public void setUpTests() {
         try {
@@ -29,6 +30,7 @@ public class TestBase extends SeleniumBase {
         }
     }
 
+    // Close WebDriver
     @AfterMethod
     public void tearDownTests() throws Exception{
         try {
