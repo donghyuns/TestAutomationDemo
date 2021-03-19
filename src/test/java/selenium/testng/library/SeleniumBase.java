@@ -2,8 +2,13 @@ package selenium.testng.library;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 /* To-Do for Selenium Grid */
 public class SeleniumBase {
@@ -14,19 +19,21 @@ public class SeleniumBase {
     private static String browser = "chrome";
     //private static String serverport = "4444";
 
-    public void openBrowser() {
-        System.setProperty("webdriver.chrome.driver", "/Users/donghyun/chromedriver");
+    public void openBrowser() throws MalformedURLException {
+        //System.setProperty("webdriver.chrome.driver", "/Users/donghyun/chromedriver");
         switch (browser) {
             default:
-                driver = new ChromeDriver();
-                //return new ChromeDriver();
+                /* Selenium Grid */
+                ChromeOptions chromeOptions = new ChromeOptions();
+                driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), chromeOptions);
+                /* Local */
+                //driver = new ChromeDriver();
             case "ie":
                 driver = new InternetExplorerDriver();
-                //return new InternetExplorerDriver();
             case "ff":
                 driver = new FirefoxDriver();
-                //return new FirefoxDriver();
         }
+
         driver.get("http://");
     }
 
