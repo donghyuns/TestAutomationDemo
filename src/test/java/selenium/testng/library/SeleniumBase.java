@@ -1,5 +1,7 @@
 package selenium.testng.library;
 
+import org.apache.commons.configuration2.PropertiesConfiguration;
+import org.apache.commons.configuration2.builder.fluent.Configurations;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -16,25 +18,29 @@ public class SeleniumBase {
     public static WebDriver driver;
 
     // To-Do : Getting parameters from external config file
-    private static String browser = "chrome";
+    public static PropertiesConfiguration config = null;
     //private static String serverport = "4444";
 
     public void openBrowser() throws MalformedURLException {
-        //System.setProperty("webdriver.chrome.driver", "/Users/donghyun/chromedriver");
+        String hubhost = config.getString("HUBHOST");
+        String browser = config.getString("BROWSER");
+        String baseurl = config.getString("BASEURL");
+
         switch (browser) {
-            default:
+            default: //Chrome
                 /* Selenium Grid */
                 ChromeOptions chromeOptions = new ChromeOptions();
-                driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), chromeOptions);
+                driver = new RemoteWebDriver(new URL(hubhost), chromeOptions);
                 /* Local */
+                //System.setProperty("webdriver.chrome.driver", "/Users/donghyun/chromedriver");
                 //driver = new ChromeDriver();
-            case "ie":
+            case "IE":
                 driver = new InternetExplorerDriver();
-            case "ff":
+            case "FF":
                 driver = new FirefoxDriver();
         }
 
-        driver.get("http://");
+        driver.get(baseurl);
     }
 
     public void closeBrowser() {
