@@ -35,9 +35,9 @@ public class SeleniumBase {
                 //System.setProperty("webdriver.chrome.driver", "/Users/donghyun/chromedriver");
                 //driver = new ChromeDriver();
             case "IE":
-                driver = new InternetExplorerDriver();
+                //driver = new InternetExplorerDriver();
             case "FF":
-                driver = new FirefoxDriver();
+                //driver = new FirefoxDriver();
         }
 
         driver.get(baseurl);

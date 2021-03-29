@@ -10,12 +10,11 @@ import static org.testng.Assert.assertEquals;
 import org.testng.annotations.Test;
 
 public class DemoTest extends TestBase {
-    @Test
+    @Test(groups = { "demo" })
     public void verifyFormDemo() {
         //System.setProperty("webdriver.chrome.driver", "/Users/donghyun/chromedriver");
-
         //WebDriver driver = new ChromeDriver();
-        //WebDriver driver = getWebDriver("chrome");
+
         WebDriver driver = getDriver();
 
         driver.get("https://formy-project.herokuapp.com/form");

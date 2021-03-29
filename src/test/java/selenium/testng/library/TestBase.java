@@ -14,7 +14,7 @@ public class TestBase extends SeleniumBase {
         To-Do : Any config for Remote Selenium Server in @BeforeTest
      */
     @Parameters({ "config-file" })
-    @BeforeTest
+    @BeforeTest(groups = { "abstract" })
     public void initFramework(String configfile) throws Exception {
         // Initialize configuration
         Configurations configs = new Configurations();
@@ -25,24 +25,24 @@ public class TestBase extends SeleniumBase {
 
         super.config = config;
     }
-    @BeforeTest
+    @BeforeTest(groups = { "abstract" })
     public void initTests() throws Exception{
         // Start Selenium Server
         //super.startSeleniumServer();
     }
 
     // Create global WebDriver
-    @BeforeMethod
+    @BeforeMethod(groups = { "abstract" })
     public void setUpTests() {
         try {
             super.openBrowser();
         } catch (Exception e) {
-            //
+            e.printStackTrace();
         }
     }
 
     // Close WebDriver
-    @AfterMethod
+    @AfterMethod(groups = { "abstract" })
     public void tearDownTests() throws Exception{
         try {
             super.closeBrowser();
@@ -51,7 +51,7 @@ public class TestBase extends SeleniumBase {
         }
     }
 
-    @AfterTest
+    @AfterTest(groups = { "abstract" })
     public void cleanUp() {
         try {
 

@@ -4,6 +4,13 @@
 <suite name="Test Automation Demo Test" verbose="1" >
     <parameter name="config-file" value="src/test/resources/config.properties" />
     <test name="Demo" >
+        <groups>
+            <run>
+                <include name="abstract" />
+                <include name="demo" />
+            </run>
+        </groups>
+
         <classes>
             <class name="selenium.testng.tests.DemoTest" />
         </classes>
