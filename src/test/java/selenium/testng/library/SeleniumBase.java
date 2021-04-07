@@ -29,18 +29,19 @@ public class SeleniumBase {
         switch (browser) {
             default: //Chrome
                 /* Selenium Grid */
-                ChromeOptions chromeOptions = new ChromeOptions();
-                driver = new RemoteWebDriver(new URL(hubhost), chromeOptions);
+                //ChromeOptions chromeOptions = new ChromeOptions();
+                //driver = new RemoteWebDriver(new URL(hubhost), chromeOptions);
                 /* Local */
-                //System.setProperty("webdriver.chrome.driver", "/Users/donghyun/chromedriver");
-                //driver = new ChromeDriver();
+                System.setProperty("webdriver.chrome.driver", "/Users/donghyun/chromedriver");
+                driver = new ChromeDriver();
             case "IE":
                 //driver = new InternetExplorerDriver();
             case "FF":
                 //driver = new FirefoxDriver();
         }
 
-        driver.get(baseurl);
+        //driver.get(baseurl);
+        driver.get("http://");
     }
 
     public void closeBrowser() {
