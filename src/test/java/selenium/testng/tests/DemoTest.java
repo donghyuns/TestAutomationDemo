@@ -18,18 +18,19 @@ public class DemoTest extends TestBase {
         //WebDriver driver = new ChromeDriver();
 
         WebDriver driver = getDriver();
-
         driver.get(config.getString("BASEURL") + "form");
 
-        FormPage formPage = new FormPage();
-        formPage.submitForm(driver);
+        try {
+            FormPage formPage = new FormPage();
+            formPage.submitForm(driver);
 
-        ConfirmationPage confirmationPage = new ConfirmationPage();
-        confirmationPage.waitForAlertBanner(driver);
+            ConfirmationPage confirmationPage = new ConfirmationPage();
+            confirmationPage.waitForAlertBanner(driver);
 
-        assertEquals("The form was successfully submitted!", confirmationPage.getAlertBannerText(driver));
-
-        //driver.quit();
+            assertEquals("The form was successfully submitted!", confirmationPage.getAlertBannerText(driver));
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
     }
 
     //@Test(groups = { "demo" })
@@ -38,12 +39,16 @@ public class DemoTest extends TestBase {
         WebDriver driver = getDriver();
         driver.get(config.getString("BASEURL") + "keypress");
 
-        WebElement inputfield = driver.findElement(By.id("name"));
-        inputfield.click();
-        inputfield.sendKeys("Quality Engineer");
+        try {
+            WebElement inputfield = driver.findElement(By.id("name"));
+            inputfield.click();
+            inputfield.sendKeys("Quality Engineer");
 
-        WebElement button = driver.findElement(By.id("button"));
-        button.click();
+            WebElement button = driver.findElement(By.id("button"));
+            button.click();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test(groups = { "demo" })
