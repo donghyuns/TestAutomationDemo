@@ -11,8 +11,6 @@ import selenium.testng.pages.FormPage;
 import static org.testng.Assert.assertEquals;
 import org.testng.annotations.Test;
 
-import java.util.concurrent.TimeUnit;
-
 public class DemoTest extends TestBase {
     //@Test(groups = { "demo" })
     public void verifyForm() {
